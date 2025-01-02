@@ -1,0 +1,9 @@
+# Save the trained model
+with open("best_model.pkl", "wb") as model_file:
+    pickle.dump(model, model_file)
+
+# Save the vectorizer
+with open("vectorizer.pkl", "wb") as vectorizer_file:
+    pickle.dump(vectorizer, vectorizer_file)
+
+print("Model and vectorizer saved successfully!")
