@@ -1,19 +1,28 @@
 import pandas as pd
-import streamlit as st
-import os
+import nltk
+
+# Check if NLTK data exists, if not, download the required resources
+try:
+    nltk.data.find("tokenizers/punkt")
+    nltk.data.find("corpora/stopwords")
+except LookupError:
+    nltk.download("punkt")
+    nltk.download("stopwords")
+#import streamlit as st
+#import os
 
 # Check if nltk is installed
-try:
-    import nltk
-    nltk.download('punkt')
-    nltk.download('stopwords')
-    st.write("NLTK is installed, and required data files are downloaded!")
-except ModuleNotFoundError:
-    st.error("NLTK is not installed. Please check your dependencies.")
+#try:
+   # import nltk
+   # nltk.download('punkt')
+   # nltk.download('stopwords')
+    #st.write("NLTK is installed, and required data files are downloaded!")
+#except ModuleNotFoundError:
+    #st.error("NLTK is not installed. Please check your dependencies.")
 
 # Display installed packages
-st.write("Installed packages:")
-os.system("pip freeze")
+#st.write("Installed packages:")
+#os.system("pip freeze")
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.naive_bayes import MultinomialNB
