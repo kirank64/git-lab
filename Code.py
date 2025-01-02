@@ -1,11 +1,4 @@
 import pandas as pd
-import nltk
-try:
-    nltk.data.find("tokenizers/punkt")
-    nltk.data.find("corpora/stopwords")
-except LookupError:
-    nltk.download("punkt")
-    nltk.download("stopwords")
 import streamlit as st
 import os
 
