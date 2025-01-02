@@ -1,4 +1,7 @@
+
+pandas
 nltk
-import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
+scikit-learn
+streamlit
+matplotlib
+seaborn
