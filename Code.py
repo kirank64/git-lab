@@ -159,9 +159,22 @@ def chatbot_response(user_input):
 
 # Streamlit app interface
 st.title("Chatbot using NLP")
-user_input = st.text_input("You:", placeholder="Type something...")
 if user_input:
-    st.write(f"Bot: {chatbot_response(user_input)}")
-''')
+    # Predict intent
+    processed_input = preprocess_text(user_input)
+    vectorized_input = vectorizer.transform([processed_input])
+    intent = model.predict(vectorized_input)[0]
+
+    # Get response based on intent
+    response = chatbot_response(user_input)
+
+    # Display response and optionally evaluate model on test set (for demo purposes)
+    st.write(f"Bot: {response}")
+
+    # *Optional Model Evaluation (for demo):*
+    # from sklearn.metrics import accuracy_score
+    # y_pred = model.predict(X_test)
+    # accuracy = accuracy_score(y_test, y_pred)
+    # st.write(f"Model Accuracy: {accuracy:.3f}")  # Display accuracy on test set
 
 streamlit_code()
