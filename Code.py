@@ -88,7 +88,7 @@ models = {
 model_accuracies = {}
 
 for model_name, model in models.items():
-    scores = cross_val_score(model, X_train, y_train, cv=5, scoring='accuracy')
+    scores = cross_val_score(model, X_train, y_train, cv=3, scoring='accuracy')
     avg_accuracy = scores.mean()
     model_accuracies[model_name] = avg_accuracy
 
