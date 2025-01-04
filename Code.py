@@ -87,7 +87,11 @@ models = {
 # Display the number of samples per intent
 class_distribution = df['intent'].value_counts()
 print("Class Distribution:\n", class_distribution)
+# Determine the minimum class size
+min_class_size = class_distribution.min()
+cv = min(5, min_class_size)
 
+print(f"Using cv={cv} for cross-validation.")
 model_accuracies = {}
 
 for model_name, model in models.items():
