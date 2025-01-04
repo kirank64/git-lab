@@ -84,6 +84,9 @@ models = {
     'Bagging': BaggingClassifier(estimator=SVC(kernel='linear', probability=True), n_estimators=10, random_state=42),
     'AdaBoost': AdaBoostClassifier(random_state=42),
 }
+# Display the number of samples per intent
+class_distribution = df['intent'].value_counts()
+print("Class Distribution:\n", class_distribution)
 
 model_accuracies = {}
 
