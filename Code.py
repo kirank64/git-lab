@@ -81,14 +81,14 @@ models = {
     'Naive Bayes': MultinomialNB(),
     'SVM': SVC(kernel='linear', probability=True),
     'Random Forest': RandomForestClassifier(random_state=42),
-    'Bagging': BaggingClassifier(estimator=SVC(kernel='linear', probability=True), n_estimators=3, random_state=42),
+    'Bagging': BaggingClassifier(estimator=SVC(kernel='linear', probability=True), n_estimators=10, random_state=42),
     'AdaBoost': AdaBoostClassifier(random_state=42),
 }
 
 model_accuracies = {}
 
 for model_name, model in models.items():
-    scores = cross_val_score(model, X_train, y_train, cv=5, scoring='accuracy')
+    scores = cross_val_score(model, X_train, y_train, cv=2, scoring='accuracy')
     avg_accuracy = scores.mean()
     model_accuracies[model_name] = avg_accuracy
 
