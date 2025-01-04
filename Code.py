@@ -10,7 +10,7 @@ try:
     st.write("NLTK is installed, and required data files are downloaded!")
 except ModuleNotFoundError:
     st.error("NLTK is not installed. Please check your dependencies.")
-Display installed packages
+#Display installed packages
 st.write("Installed packages:")
 os.system("pip freeze")
 from sklearn.feature_extraction.text import TfidfVectorizer
